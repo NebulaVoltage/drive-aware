@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-electric-lime: #DFFF00;
+    --color-carbon-black: #090A0C;
+    --color-graphite: #181C23;
+  }
+
+  body {
+    background-color: #090A0C;
+    color: #F4F5F7;
+    font-family: 'Syne', sans-serif;
+    cursor: default;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090A0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #232934;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DFFF00;
+}
+
+/* Technical Telemetry Grid Background */
+.bg-telemetry-grid {
+  background-image: 
+    linear-gradient(to right, rgba(223, 255, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(223, 255, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Scanline Effect */
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.4)
+  );
+  background-size: 100% 4px;
+}
+
+/* F1 Telemetry HUD Borders */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before,
+.hud-corner::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(223, 255, 0, 0.6);
+  pointer-events: none;
+}
+.hud-corner::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.hud-corner::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* Neon Glows */
+.text-glow-lime {
+  text-shadow: 0 0 15px rgba(223, 255, 0, 0.4), 0 0 30px rgba(223, 255, 0, 0.15);
+}
+.box-glow-lime {
+  box-shadow: 0 0 25px rgba(223, 255, 0, 0.2), inset 0 0 15px rgba(223, 255, 0, 0.05);
+}
+.box-glow-alert {
+  box-shadow: 0 0 35px rgba(255, 42, 75, 0.4), inset 0 0 20px rgba(255, 42, 75, 0.1);
+}
+
+/* Font Monospace Utility */
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
