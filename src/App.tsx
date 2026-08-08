@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
+import { VehicleSection } from './components/VehicleSection';
 import { Section01Problem } from './components/Section01Problem';
 import { Section02System } from './components/Section02System';
 import { Section03Vision } from './components/Section03Vision';
@@ -14,19 +15,17 @@ import { Section09WhyDriveAware } from './components/Section09WhyDriveAware';
 import { FinalSection } from './components/FinalSection';
 import { Footer } from './components/Footer';
 import { DashboardView } from './pages/DashboardView';
-import { MovingVehicleBackground } from './components/MovingVehicleBackground';
 import { useTelemetryData } from './hooks/useTelemetryData';
 import { useLenisScroll } from './hooks/useLenisScroll';
 
 export function App() {
-  // Starting initialization step removed as requested
   const [currentView, setCurrentView] = useState<'brand' | 'dashboard'>('brand');
 
   const { telemetry, isConnected, isSimulated, triggerScenario, activeScenario } = useTelemetryData();
-  const { scrollProgress, scrollVelocity } = useLenisScroll();
+  useLenisScroll();
 
   const handleExplore = () => {
-    const el = document.getElementById('problem');
+    const el = document.getElementById('vehicle-showcase');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -44,11 +43,6 @@ export function App() {
       {/* Technical Reticle Cursor */}
       <CustomCursor />
 
-      {/* Dynamic 3D Heavy Transport Cyber Truck Highway Background responding instantly to Scroll */}
-      {currentView === 'brand' && (
-        <MovingVehicleBackground scrollProgress={scrollProgress} scrollVelocity={scrollVelocity} />
-      )}
-
       {/* Main View Router */}
       {currentView === 'dashboard' ? (
         <DashboardView
@@ -60,7 +54,7 @@ export function App() {
           onBack={() => setCurrentView('brand')}
         />
       ) : (
-        <main className="relative z-10">
+        <main className="relative z-10 overflow-x-hidden">
           {/* Floating Header Navigation */}
           <Navigation
             onOpenDashboard={() => setCurrentView('dashboard')}
@@ -69,6 +63,9 @@ export function App() {
 
           {/* Hero Section with Interactive Letter Physics Title */}
           <HeroSection onExplore={handleExplore} />
+
+          {/* Major Dedicated Truck Showcase Section (Appears Immediately After Hero) */}
+          <VehicleSection />
 
           {/* Section 01 — Problem Definition */}
           <Section01Problem />
