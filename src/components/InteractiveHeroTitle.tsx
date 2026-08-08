@@ -133,7 +133,8 @@ export function InteractiveHeroTitle() {
       className="relative select-none py-2 cursor-default w-full max-w-full overflow-hidden"
       data-cursor="hover"
     >
-      <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-extrabold tracking-widest font-display uppercase leading-none flex flex-wrap justify-center lg:justify-start items-center gap-x-1 sm:gap-x-2">
+      {/* Enforced Single-Line DRIVEAWARE Heading */}
+      <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[5.2rem] xl:text-[6.2rem] font-extrabold tracking-wider font-display uppercase leading-none flex flex-nowrap whitespace-nowrap justify-center lg:justify-start items-center">
         {titleText.split('').map((char, index) => (
           <span
             key={index}
