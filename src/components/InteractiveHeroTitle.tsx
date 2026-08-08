@@ -3,11 +3,12 @@ import React, { useRef, useEffect, useState } from 'react';
 export function InteractiveHeroTitle() {
   const containerRef = useRef<HTMLDivElement>(null);
   const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const titleText = "DRIVEAWARE";
+  const driveWord = "DRIVE";
+  const awareWord = "AWARE";
 
   // Track letters state with RAF physics loop for 60fps performance
   const physicsState = useRef(
-    titleText.split('').map(() => ({
+    [...driveWord, ...awareWord].map(() => ({
       currentX: 0,
       currentY: 0,
       targetX: 0,
@@ -133,23 +134,40 @@ export function InteractiveHeroTitle() {
       className="relative select-none py-2 cursor-default w-full max-w-full overflow-hidden"
       data-cursor="hover"
     >
-      {/* Enforced Single-Line DRIVEAWARE Heading */}
-      <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[5.2rem] xl:text-[6.2rem] font-extrabold tracking-wider font-display uppercase leading-none flex flex-nowrap whitespace-nowrap justify-center lg:justify-start items-center">
-        {titleText.split('').map((char, index) => (
-          <span
-            key={index}
-            ref={(el) => (letterRefs.current[index] = el)}
-            className={`inline-block transition-shadow duration-150 transform-gpu ${
-              index >= 5 ? 'text-[#DFFF00] drop-shadow-[0_0_15px_rgba(223,255,0,0.3)]' : 'text-[#F4F5F7]'
-            }`}
-            style={{
-              willChange: 'transform, color',
-              display: 'inline-block'
-            }}
-          >
-            {char}
-          </span>
-        ))}
+      <h1 className="flex flex-col items-center lg:items-start font-extrabold font-display uppercase leading-[0.88] tracking-widest text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem]">
+        {/* Line 1: DRIVE */}
+        <div className="flex flex-nowrap justify-center lg:justify-start items-center">
+          {driveWord.split('').map((char, index) => (
+            <span
+              key={`drive-${index}`}
+              ref={(el) => (letterRefs.current[index] = el)}
+              className="inline-block text-[#F4F5F7] transition-shadow duration-150 transform-gpu"
+              style={{
+                willChange: 'transform, color',
+                display: 'inline-block'
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+
+        {/* Line 2: AWARE (Directly underneath DRIVE in Electric Lime) */}
+        <div className="flex flex-nowrap justify-center lg:justify-start items-center mt-1 sm:mt-2">
+          {awareWord.split('').map((char, index) => (
+            <span
+              key={`aware-${index}`}
+              ref={(el) => (letterRefs.current[index + 5] = el)}
+              className="inline-block text-[#DFFF00] drop-shadow-[0_0_20px_rgba(223,255,0,0.35)] transition-shadow duration-150 transform-gpu"
+              style={{
+                willChange: 'transform, color',
+                display: 'inline-block'
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
       </h1>
     </div>
   );
