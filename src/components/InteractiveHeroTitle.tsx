@@ -131,10 +131,10 @@ export function InteractiveHeroTitle() {
   return (
     <div
       ref={containerRef}
-      className="relative select-none py-2 cursor-default w-full max-w-full overflow-hidden"
+      className="relative select-none py-1 cursor-default w-full"
       data-cursor="hover"
     >
-      <h1 className="flex flex-col items-center lg:items-start font-extrabold font-display uppercase leading-[0.88] tracking-widest text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem]">
+      <h1 className="flex flex-col items-center lg:items-start font-extrabold font-display uppercase leading-[0.9] tracking-wider text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.2rem] 2xl:text-[6rem]">
         {/* Line 1: DRIVE */}
         <div className="flex flex-nowrap justify-center lg:justify-start items-center">
           {driveWord.split('').map((char, index) => (
