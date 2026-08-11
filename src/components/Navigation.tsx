@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, ShieldCheck, Cpu, LayoutDashboard, Radio } from 'lucide-react';
 
 interface NavigationProps {
   onOpenDashboard: () => void;
@@ -57,16 +56,25 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
               isScrolled ? 'py-2.5 w-full max-w-4xl' : 'py-4 w-full max-w-6xl'
             }`}
           >
-            {/* Left: Brand Logo & Status */}
-            <div className="flex items-center gap-4">
+            {/* Left: Official Brand Logo & Status */}
+            <div className="flex items-center gap-3 sm:gap-4">
               <a
                 href="#"
-                className="flex items-center gap-2 text-lg font-extrabold tracking-wider uppercase font-display"
+                aria-label="DriveAware Home"
+                className="group flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.02] hover:brightness-110"
               >
-                <div className="w-7 h-7 rounded bg-[#DFFF00] text-[#090A0C] flex items-center justify-center font-black text-xs shadow-[0_0_12px_#DFFF00]">
-                  DA
-                </div>
-                <span className="hidden sm:inline text-white">DRIVE<span className="text-[#DFFF00]">AWARE</span></span>
+                {/* Official DriveAware Emblem Mark */}
+                <img
+                  src="/assets/images/driveaware-logo-mark.svg"
+                  alt="DriveAware"
+                  className="h-7 sm:h-8 w-auto object-contain text-[#F4F5F7]"
+                  style={{ color: '#F4F5F7' }}
+                />
+                
+                {/* Wordmark */}
+                <span className="hidden sm:inline text-base md:text-lg font-extrabold tracking-wider uppercase font-display text-white">
+                  DRIVE<span className="text-[#DFFF00]">AWARE</span>
+                </span>
               </a>
 
               {/* Status Badge */}
@@ -125,7 +133,6 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
               data-cursor-label="DASHBOARD →"
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#DFFF00] hover:bg-[#c6e600] text-black font-bold text-xs font-mono-tech tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(223,255,0,0.3)] hover:shadow-[0_0_25px_rgba(223,255,0,0.6)]"
             >
-              <LayoutDashboard size={14} />
               <span>TELEMETRY DASHBOARD</span>
             </button>
           </div>

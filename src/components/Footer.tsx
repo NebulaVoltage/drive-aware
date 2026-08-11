@@ -17,10 +17,12 @@ export function Footer({ onOpenDashboard }: FooterProps) {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         {/* Left Brand Col */}
         <div className="md:col-span-5 space-y-3">
-          <div className="flex items-center gap-2 text-base font-extrabold text-white uppercase font-display">
-            <div className="w-6 h-6 rounded bg-[#DFFF00] text-black flex items-center justify-center font-black text-xs">
-              DA
-            </div>
+          <div className="flex items-center gap-2.5 text-base font-extrabold text-white uppercase font-display">
+            <img
+              src="/assets/images/driveaware-logo-mark.svg"
+              alt="DriveAware"
+              className="h-6 w-auto object-contain"
+            />
             <span>DRIVE<span className="text-[#DFFF00]">AWARE</span></span>
           </div>
           <p className="text-gray-400 text-xs font-sans max-w-sm">
