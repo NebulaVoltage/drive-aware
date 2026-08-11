@@ -1,4 +1,5 @@
 import React from 'react';
+import { DriveAwareFullLogo } from './DriveAwareLogo';
 
 interface FooterProps {
   onOpenDashboard: () => void;
@@ -17,15 +18,8 @@ export function Footer({ onOpenDashboard }: FooterProps) {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         {/* Left Brand Col */}
         <div className="md:col-span-5 space-y-3">
-          <div className="flex items-center gap-2.5 text-base font-extrabold text-white uppercase font-display">
-            <img
-              src="/assets/images/driveaware-logo-mark.svg"
-              alt="DriveAware"
-              className="h-6 w-auto object-contain"
-            />
-            <span>DRIVE<span className="text-[#DFFF00]">AWARE</span></span>
-          </div>
-          <p className="text-gray-400 text-xs font-sans max-w-sm">
+          <DriveAwareFullLogo />
+          <p className="text-gray-400 text-xs font-sans max-w-sm pt-1">
             AI-Powered Driver Safety & Multi-Sensor Fusion Telemetry System.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">

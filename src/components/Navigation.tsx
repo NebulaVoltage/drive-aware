@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LayoutDashboard } from 'lucide-react';
+import { DriveAwareFullLogo } from './DriveAwareLogo';
 
 interface NavigationProps {
   onOpenDashboard: () => void;
@@ -52,89 +54,79 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
           className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 pointer-events-none"
         >
           <div
-            className={`pointer-events-auto flex items-center justify-between transition-all duration-300 rounded-full border border-[#DFFF00]/20 bg-[#090A0C]/85 backdrop-blur-xl px-4 md:px-6 shadow-[0_10px_30px_rgba(0,0,0,0.8)] ${
-              isScrolled ? 'py-2.5 w-full max-w-4xl' : 'py-4 w-full max-w-6xl'
+            className={`pointer-events-auto flex items-center justify-between gap-4 transition-all duration-300 rounded-full border border-[#DFFF00]/25 bg-[#090A0C]/90 backdrop-blur-xl px-4 md:px-6 shadow-[0_10px_35px_rgba(0,0,0,0.85)] ${
+              isScrolled ? 'py-2.5 w-full max-w-5xl' : 'py-3.5 w-full max-w-7xl'
             }`}
           >
-            {/* Left: Official Brand Logo & Status */}
-            <div className="flex items-center gap-3 sm:gap-4">
-              <a
-                href="#"
-                aria-label="DriveAware Home"
-                className="group flex items-center gap-2.5 transition-transform duration-200 hover:scale-[1.02] hover:brightness-110"
-              >
-                {/* Official DriveAware Emblem Mark */}
-                <img
-                  src="/assets/images/driveaware-logo-mark.svg"
-                  alt="DriveAware"
-                  className="h-7 sm:h-8 w-auto object-contain text-[#F4F5F7]"
-                  style={{ color: '#F4F5F7' }}
-                />
-                
-                {/* Wordmark */}
-                <span className="hidden sm:inline text-base md:text-lg font-extrabold tracking-wider uppercase font-display text-white">
-                  DRIVE<span className="text-[#DFFF00]">AWARE</span>
-                </span>
-              </a>
-
-              {/* Status Badge */}
-              <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#181C23] border border-[#232934] text-[10px] font-mono-tech">
-                <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-[#DFFF00] animate-ping'}`} />
-                <span className="text-gray-300 tracking-wider uppercase">
-                  {isConnected ? 'LIVE EDGE SENSOR' : 'SYSTEM ONLINE'}
-                </span>
-              </div>
-            </div>
+            {/* Left: Official Brand Logo Mark & Wordmark */}
+            <a
+              href="#"
+              aria-label="DriveAware Home"
+              className="shrink-0 transition-transform duration-200 hover:scale-[1.02] hover:brightness-110 flex items-center"
+            >
+              <DriveAwareFullLogo />
+            </a>
 
             {/* Middle Nav Links */}
-            <nav className="hidden lg:flex items-center gap-6 text-xs font-mono-tech text-gray-400 tracking-wider">
+            <nav className="hidden xl:flex items-center gap-6 text-xs font-mono-tech text-gray-400 tracking-wider">
               <button
                 onClick={() => scrollToSection('problem')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [01] PROBLEM
               </button>
               <button
                 onClick={() => scrollToSection('system')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [02] SYSTEM
               </button>
               <button
                 onClick={() => scrollToSection('vision')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [03] VISION
               </button>
               <button
                 onClick={() => scrollToSection('pressure')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [04] PRESSURE
               </button>
               <button
                 onClick={() => scrollToSection('fusion')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [05] FUSION
               </button>
               <button
                 onClick={() => scrollToSection('hardware')}
-                className="hover:text-[#DFFF00] transition-colors uppercase"
+                className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
               >
                 [08] HARDWARE
               </button>
             </nav>
 
-            {/* Right CTA */}
-            <button
-              onClick={onOpenDashboard}
-              data-cursor="cta"
-              data-cursor-label="DASHBOARD →"
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#DFFF00] hover:bg-[#c6e600] text-black font-bold text-xs font-mono-tech tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(223,255,0,0.3)] hover:shadow-[0_0_25px_rgba(223,255,0,0.6)]"
-            >
-              <span>TELEMETRY DASHBOARD</span>
-            </button>
+            {/* Right: Status Indicator Badge + Dashboard CTA */}
+            <div className="flex items-center gap-3 shrink-0">
+              {/* System Status Pill Badge */}
+              <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#181C23] border border-[#232934] text-[10px] font-mono-tech shrink-0">
+                <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-[#DFFF00] animate-ping'}`} />
+                <span className="text-gray-300 tracking-wider uppercase whitespace-nowrap">
+                  {isConnected ? 'LIVE SENSOR' : 'SYSTEM ONLINE'}
+                </span>
+              </div>
+
+              {/* Telemetry Dashboard Button */}
+              <button
+                onClick={onOpenDashboard}
+                data-cursor="cta"
+                data-cursor-label="DASHBOARD →"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#DFFF00] hover:bg-[#c6e600] text-black font-bold text-xs font-mono-tech tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(223,255,0,0.3)] hover:shadow-[0_0_25px_rgba(223,255,0,0.6)] shrink-0 whitespace-nowrap"
+              >
+                <span>TELEMETRY DASHBOARD</span>
+              </button>
+            </div>
           </div>
         </motion.header>
       )}
