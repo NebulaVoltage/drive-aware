@@ -5,7 +5,7 @@ interface LogoProps {
   showWordmark?: boolean;
 }
 
-export function DriveAwareLogoMark({ className = "h-8 w-auto" }: { className?: string }) {
+export function DriveAwareLogoMark({ className = "h-6 w-auto" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 100 80"
@@ -42,12 +42,12 @@ export function DriveAwareLogoMark({ className = "h-8 w-auto" }: { className?: s
   );
 }
 
-export function DriveAwareFullLogo({ className = "h-8 w-auto" }: LogoProps) {
+export function DriveAwareFullLogo({ className = "" }: LogoProps) {
   return (
-    <div className={`flex items-center gap-2.5 shrink-0 ${className}`}>
-      <DriveAwareLogoMark className="h-7 sm:h-8 w-auto" />
-      <span className="text-base sm:text-lg font-extrabold tracking-wider uppercase font-display text-[#F4F5F7] whitespace-nowrap">
-        DRIVE<span className="text-[#DFFF00] drop-shadow-[0_0_12px_rgba(223,255,0,0.3)]">AWARE</span>
+    <div className={`flex items-center gap-2 shrink-0 ${className}`}>
+      <DriveAwareLogoMark className="h-5 sm:h-6 w-auto" />
+      <span className="text-sm sm:text-base font-extrabold tracking-wider uppercase font-display text-[#F4F5F7] whitespace-nowrap">
+        DRIVE<span className="text-[#DFFF00] drop-shadow-[0_0_10px_rgba(223,255,0,0.3)]">AWARE</span>
       </span>
     </div>
   );
