@@ -88,7 +88,7 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
             <span className="absolute bottom-1 left-1 w-2 h-2 border-b border-l border-[#DFFF00]/60 pointer-events-none" />
             <span className="absolute bottom-1 right-1 w-2 h-2 border-b border-r border-[#DFFF00]/60 pointer-events-none" />
 
-            {/* 1. LOGO AREA (LEFT, 22-24% Width, Scaled Down 15-20%) */}
+            {/* 1. LOGO AREA (LEFT, 22-24% Width) */}
             <div className="flex items-center shrink-0 min-w-[160px] sm:min-w-[200px]">
               <a
                 href="#"
@@ -143,7 +143,7 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
 
             {/* 3. SYSTEM STATUS & TELEMETRY DASHBOARD BUTTON (RIGHT, 24px Gap, Zero Clipping) */}
             <div className="flex items-center gap-5 sm:gap-6 shrink-0">
-              {/* SYSTEM ONLINE Module (24px gap from nav) */}
+              {/* SYSTEM ONLINE Module */}
               <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#111419]/90 border border-[#232934] text-[10px] font-mono-tech shrink-0">
                 <span className="relative flex h-2 w-2">
                   <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isConnected ? 'bg-emerald-400' : 'bg-[#DFFF00]'}`} />
@@ -164,20 +164,6 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
                 <Radio size={13} className="animate-pulse shrink-0" />
                 <span className="whitespace-nowrap">TELEMETRY DASHBOARD</span>
               </button>
-            </div>
-          </div>
-
-          {/* Secondary Instrumentation Strip Below Navbar */}
-          <div className="w-full max-w-[1600px] px-6 pt-1.5 hidden md:flex items-center justify-between text-[9px] font-mono-tech text-gray-500 opacity-65 tracking-widest uppercase pointer-events-none">
-            <div className="flex items-center gap-3">
-              <span className="text-[#DFFF00] font-bold">SYS.ID // DA-2026-F1</span>
-              <span>|</span>
-              <span>60Hz MULTI-SENSOR FUSION</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span>SYNC // 60 FPS</span>
-              <span>|</span>
-              <span className="text-emerald-400 font-bold">[ TELEMETRY ACTIVE ]</span>
             </div>
           </div>
         </motion.header>
