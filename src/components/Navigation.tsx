@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LayoutDashboard } from 'lucide-react';
 import { DriveAwareFullLogo } from './DriveAwareLogo';
 
 interface NavigationProps {
@@ -51,11 +50,11 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 pointer-events-none"
+          className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pt-3 sm:pt-4 pointer-events-none"
         >
           <div
-            className={`pointer-events-auto flex items-center justify-between gap-4 transition-all duration-300 rounded-full border border-[#DFFF00]/25 bg-[#090A0C]/90 backdrop-blur-xl px-4 md:px-6 shadow-[0_10px_35px_rgba(0,0,0,0.85)] ${
-              isScrolled ? 'py-2.5 w-full max-w-5xl' : 'py-3.5 w-full max-w-7xl'
+            className={`pointer-events-auto flex items-center justify-between w-full max-w-7xl transition-all duration-300 rounded-full border border-[#DFFF00]/30 bg-[#090A0C]/95 backdrop-blur-2xl px-4 sm:px-6 shadow-[0_10px_35px_rgba(0,0,0,0.85)] ${
+              isScrolled ? 'py-2 sm:py-2.5 border-[#DFFF00]/40 shadow-[0_12px_40px_rgba(0,0,0,0.95)]' : 'py-3 sm:py-4'
             }`}
           >
             {/* Left: Official Brand Logo Mark & Wordmark */}
@@ -68,7 +67,7 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
             </a>
 
             {/* Middle Nav Links */}
-            <nav className="hidden xl:flex items-center gap-6 text-xs font-mono-tech text-gray-400 tracking-wider">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-mono-tech text-gray-400 tracking-wider">
               <button
                 onClick={() => scrollToSection('problem')}
                 className="hover:text-[#DFFF00] transition-colors uppercase whitespace-nowrap"
@@ -108,9 +107,9 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
             </nav>
 
             {/* Right: Status Indicator Badge + Dashboard CTA */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
               {/* System Status Pill Badge */}
-              <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#181C23] border border-[#232934] text-[10px] font-mono-tech shrink-0">
+              <div className="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#181C23] border border-[#232934] text-[10px] font-mono-tech shrink-0">
                 <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-[#DFFF00] animate-ping'}`} />
                 <span className="text-gray-300 tracking-wider uppercase whitespace-nowrap">
                   {isConnected ? 'LIVE SENSOR' : 'SYSTEM ONLINE'}
@@ -122,7 +121,7 @@ export function Navigation({ onOpenDashboard, isConnected }: NavigationProps) {
                 onClick={onOpenDashboard}
                 data-cursor="cta"
                 data-cursor-label="DASHBOARD →"
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#DFFF00] hover:bg-[#c6e600] text-black font-bold text-xs font-mono-tech tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(223,255,0,0.3)] hover:shadow-[0_0_25px_rgba(223,255,0,0.6)] shrink-0 whitespace-nowrap"
+                className="flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#DFFF00] hover:bg-[#c6e600] text-black font-bold text-xs font-mono-tech tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(223,255,0,0.3)] hover:shadow-[0_0_25px_rgba(223,255,0,0.6)] shrink-0 whitespace-nowrap"
               >
                 <span>TELEMETRY DASHBOARD</span>
               </button>
